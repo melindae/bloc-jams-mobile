@@ -1,0 +1,3 @@
+The folder '/Styles' is NOT the same as '/styles'.  Doh!
+
+I really like JQuery. It makes sense... so far... 
