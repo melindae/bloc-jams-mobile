@@ -1,11 +1,3 @@
-The folder '/Styles' is NOT the same as '/styles'.  Doh!
+/\/album.html/
 
-I really like JQuery. It makes sense... so far...
-
-Goofing trying to change bits...
-
-Toggled colors.
-Played with fading.
-
-Changing the selling points font size didn't work until I realized that within **'.selling-points .point p'** there was a **<p>** and an **<h5>** Doh!
-So **'.selling-points .point p'** fixed that.
+was puzzling me. I understand the regex process, but I coundn't figure out the slashes in front. Then I found http://www.regexr.com/. What an amazing site. I wasted a lot of time there. And I learned about '\/' = '/' Go figure.

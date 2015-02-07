@@ -10,6 +10,7 @@
       + '      <br/>'
       + '      X songs'
       + '      <br/>'
+	 + '        X:XX Total Length'
       + '    </p>'
       + '  </div>'
       + '</div>';
@@ -21,9 +22,13 @@
    var $collection = $(".collection-container .row");
    $collection.empty();
  
-   for (var i = 0; i < 33; i++) {
-     var $newThumbnail = buildAlbumThumbnail();
-     $collection.append($newThumbnail);
+	 var r = ((Math.random()*75)+25)
+	 
+   	for (var i = 0; i < r; i++) {
+     		var $newThumbnail = buildAlbumThumbnail();
+     		$collection.append($newThumbnail);
+			
+			console.log(r)
    }
  };
  
@@ -31,7 +36,7 @@
 if (document.URL.match(/\/collection.html/)) {
    // Wait until the HTML is fully processed.
    $(document).ready(function() {
-
+		
 			updateCollectionView();
    });
  }
