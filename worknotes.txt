@@ -1,3 +1,11 @@
 The folder '/Styles' is NOT the same as '/styles'.  Doh!
 
-I really like JQuery. It makes sense... so far... 
+I really like JQuery. It makes sense... so far...
+
+Goofing trying to change bits...
+
+Toggled colors.
+Played with fading.
+
+Changing the selling points font size didn't work until I realized that within **'.selling-points .point p'** there was a **<p>** and an **<h5>** Doh!
+So **'.selling-points .point p'** fixed that.
