@@ -1,46 +1,81 @@
  // Example Album
- var albumPicasso = {
-   name: 'The Colors',
-   artist: 'Pablo Picasso',
-   label: 'Cubism',
-   year: '1881',
-   albumArtUrl: '/images/album-placeholder.png',
-   songs: [
+  var albumPicasso = {
+    name: 'The Colors',
+    artist: 'Pablo Picasso',
+    label: 'Cubism',
+    year: '1881',
+    albumArtUrl: '/images/album-placeholder.png',
+    songs: [
        { name: 'Blue', length: '4:26' },
        { name: 'Green', length: '3:14' },
        { name: 'Red', length: '5:01' },
        { name: 'Pink', length: '3:21'},
        { name: 'Magenta', length: '2:15'}
-     ]
- };
+    ]
+  };
  
  // Another Example Album
- var albumMarconi = {
-   name: 'The Telephone',
-   artist: 'Guglielmo Marconi',
-   label: 'EM',
-   year: '1909',
-   albumArtUrl: '/images/album-placeholder.png',
-   songs: [
+  var albumMarconi = {
+    name: 'The Telephone',
+    artist: 'Guglielmo Marconi',
+    label: 'EM',
+    year: '1909',
+    albumArtUrl: '/images/album-placeholder.png',
+    songs: [
        { name: 'Hello, Operator?', length: '1:01' },
        { name: 'Ring, ring, ring', length: '5:01' },
        { name: 'Fits in your pocket', length: '3:21'},
        { name: 'Can you hear me now?', length: '3:14' },
        { name: 'Wrong phone number', length: '2:15'}
-     ]
- }; 
+    ]
+  }; 
 
- var createSongRow = function(songNumber, songName, songLength) {
-   var template =
+  var createSongRow = function(songNumber, songName, songLength) {
+    var template =
        '<tr>'
-     + '  <td class="col-md-1">' + songNumber + '</td>'
+     + '  <td class="song-number col-md-1" data-song-number="' + songNumber + '">' + songNumber + '</td>'
      + '  <td class="col-md-9">' + songName + '</td>'
      + '  <td class="col-md-2">' + songLength + '</td>'
      + '</tr>'
      ;
- 
-   return $(template);
- };
+      
+      // Instead of returning the row immediately, we'll attach hover
+      // functionality to it first.
+    var $row = $(template);
+
+    var onHover = function(event) {
+      var songNumberCell = $(this).find('.song-number');
+      songNumberCell.html('<a class="album-song-button"><i class="fa fa-play"></i></a>');
+    };
+
+    var offHover = function(event) {
+      var songNumberCell = $(this).find('.song-number');
+        var songNumber = songNumberCell.data('song-number');
+        songNumberCell.html(songNumber);
+    };  
+
+    var clickHandler = function(event) {
+      var songNumber = $(this).data('song-number');
+
+      if (currentlyPlayingSong !== null) {
+        // Revert to song number for currently playing song because user started playing new song.
+        currentlyPlayingCell = $('song-number[data-song-number="' + currentlyPlayingSong + '"]');
+        currentlyPlayingCell.html(currentlyPlayingSong);
+      }
+
+      if (currentlyPlayingSong !== songNumber ) {
+        // Switch from Play -> Pause to indicate new song is playing.
+      }
+
+      else if (the playing song was clicked ) {
+        // Switch from Pause -> Play button to pause currently playing song
+      }
+    };
+
+    $row.find('.song-number').click(clickHandler);
+    $row.hover(onHover, offHover);
+    return $row;
+  };
 
  	var changeAlbumView = function(album) {
    	
@@ -69,7 +104,7 @@
    	  var songData = songs[i];
    	  var $newRow = createSongRow(i + 1, songData.name, songData.length);
    	  $songList.append($newRow);
-   }
+    }
  
  };
  
@@ -79,18 +114,15 @@
  //  - Use a regex to validate that the url has "/album" in its path.
   if (document.URL.match(/\/album.html/)) {
    // Wait until the HTML is fully processed.
-   $(document).ready(function() {
+    $(document).ready(function() {
 		
-		changeAlbumView(albumPicasso)
+		  changeAlbumView(albumPicasso)
 		
-		// var aMar = changeAlbumView(albumMarconi);
-		// var aPic = changeAlbumView(albumPicasso);
-		var onClick = function(event) {
-			changeAlbumView(albumMarconi)
-		};
-		
-		$('.col-md-3').click(onClick);
- });
+		  //var onClick = function(event) {
+			//changeAlbumView(albumMarconi)
+		  //};
+		  //$('.col-md-3').click(onClick);
+    });
 	  
   }
 		
