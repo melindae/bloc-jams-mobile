@@ -1,0 +1,3 @@
+/\/album.html/
+
+was puzzling me. I understand the regex process, but I coundn't figure out the slashes in front. Then I found http://www.regexr.com/. What an amazing site. I wasted a lot of time there. And I learned about '\/' = '/' Go figure.
