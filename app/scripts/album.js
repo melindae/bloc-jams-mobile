@@ -29,6 +29,7 @@
        { name: 'Wrong phone number', length: '2:15'}
     ]
   }; 
+  var currentlyPlayingSong = null;
 
   var createSongRow = function(songNumber, songName, songLength) {
     var template =
@@ -43,16 +44,24 @@
       // functionality to it first.
     var $row = $(template);
 
+      // Change from a song number to play button when the song isn't playing and we hover over the row.
     var onHover = function(event) {
       var songNumberCell = $(this).find('.song-number');
-      songNumberCell.html('<a class="album-song-button"><i class="fa fa-play"></i></a>');
-    };
+        var songNumber = songNumberCell.data('song-number');
+        if (songNumber !== currentlyPlayingSong) {
+          songNumberCell.html('<a class="album-song-button"><i class="fa fa-play"></i></a>');
+    }
+  };
 
+      // Change from a play button to song number when the song isn't playing and we hover off the row.
     var offHover = function(event) {
       var songNumberCell = $(this).find('.song-number');
         var songNumber = songNumberCell.data('song-number');
-        songNumberCell.html(songNumber);
-    };  
+          songNumberCell.html(songNumber);
+          if (songNumber !== currentlyPlayingSong) {
+            songNumberCell.html(songNumber);
+    }
+  };
 
     var clickHandler = function(event) {
       var songNumber = $(this).data('song-number');
@@ -65,10 +74,14 @@
 
       if (currentlyPlayingSong !== songNumber ) {
         // Switch from Play -> Pause to indicate new song is playing.
+        $(this).html('<a class="album-song-button"><i class="fa fa=pause"></i></a>');
+        currentlyPlayingSong = songNumber;
       }
 
-      else if (the playing song was clicked ) {
+      else if (currentlyPlayingSong === songNumber) {
         // Switch from Pause -> Play button to pause currently playing song
+        $(this).html('<a class="album-song-button"><i class="fa fa=play"></1></a>');
+        currentlyPlayingSong = null;
       }
     };
 
