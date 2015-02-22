@@ -52,6 +52,7 @@
         if (songNumber !== currentlyPlayingSong) {
           songNumberCell.html('<a class="album-song-button"><i class="fa fa-play"></i></a>');
     }
+
   };
 
       // Change from a play button to song number when the song isn't playing and we hover off the row.
@@ -62,6 +63,7 @@
           if (songNumber !== currentlyPlayingSong) {
             songNumberCell.html(songNumber);
     }
+
   };
 
     var clickHandler = function(event) {
@@ -84,6 +86,7 @@
         $(this).html('<a class="album-song-button"><i class="fa fa=play"></1></a>');
         currentlyPlayingSong = null;
       }
+
     };
 
     $row.find('.song-number').click(clickHandler);
@@ -122,9 +125,6 @@
  
  };
  
-
-
-		
 var updateSeekPercentage = function($seekBar, event) {
   var barWidth = $seekBar.width();
   var offsetX = event.pageX - $seekBar.offset().left;
@@ -160,7 +160,9 @@ var setupSeekBars = function() {
       $(document).unbind('mousemove.thumb');
       $(document).unbind('mouseup.thumb');
     });
+
   });
+
 }
 
 
@@ -172,6 +174,7 @@ if (document.URL.match(/\/album.html/)) {
     changeAlbumView(albumPicasso)
     setupSeekBars()
   });
+  
 }
 
 //$(document).mousemove(function(event) {
