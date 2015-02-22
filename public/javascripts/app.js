@@ -91,6 +91,7 @@
   globals.require.brunch = true;
 })();
 require.register("scripts/album", function(exports, require, module) {
+ $('.navbar-left').click(function(e){console.log(e) })
  // Example Album
   var albumPicasso = {
     name: 'The Colors',
@@ -215,26 +216,60 @@ require.register("scripts/album", function(exports, require, module) {
  };
  
 
-// This 'if' condition is used to prevent the jQuery modifications
- // from happening on non-Album view pages.
- //  - Use a regex to validate that the url has "/album" in its path.
-  if (document.URL.match(/\/album.html/)) {
-   // Wait until the HTML is fully processed.
-    $(document).ready(function() {
-		
-		  changeAlbumView(albumPicasso)
-		
-		  //var onClick = function(event) {
-			//changeAlbumView(albumMarconi)
-		  //};
-		  //$('.col-md-3').click(onClick);
-    });
-	  
-  }
-		
- 
- 
 
+		
+var updateSeekPercentage = function($seekBar, event) {
+  var barWidth = $seekBar.width();
+  var offsetX = event.pageX - $seekBar.offset().left;
+
+  var offsetXPercent = (offsetX / barWidth) * 100;
+  offsetXPercent = Math.max(0, offsetXPercent);
+  offsetXPercent = Math.min(100, offsetXPercent);
+
+  var percentageString = offsetXPercent + '%';
+  $seekBar.find('.fill').width(percentageString);
+  $seekBar.find('.thumb').css({left: percentageString});  
+  } 
+
+var setupSeekBars = function() {
+
+  $seekBars = $('.player-bar .seek-bar');
+  $seekBars.click(function(event){
+    updateSeekPercentage($(this), event);
+  });
+ 
+  $seekBars.find('.thumb').mousedown(function(event) {
+    var $seekBars = $(this).parent();
+
+    $seekBar.addClass('no-animate');  
+    
+    $(document).bind('mousemove.thumb', function(event) {
+      updateSeekPercentage($seekBars, event);
+    });
+
+    //cleanup
+    $(document).bind('mouseup.thumb', function() {
+      $seekBar.removeClass('no-animate');
+      $(document).unbind('mousemove.thumb');
+      $(document).unbind('mouseup.thumb');
+    });
+  });
+}
+
+
+// This 'if' condition is used to prevent the jQuery modifications
+// from happening on non-Album view pages.
+//  - Use a regex to validate that the url has "/album" in its path.
+if (document.URL.match(/\/album.html/)) {
+  $(document).ready(function() {
+    changeAlbumView(albumPicasso)
+    setupSeekBars()
+  });
+}
+
+//$(document).mousemove(function(event) {
+//  console.log('X ' + event.pageX, 'Y ' + event.pageY); 
+//})
 });
 
 ;require.register("scripts/app", function(exports, require, module) {

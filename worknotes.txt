@@ -1,3 +1,24 @@
-/\/album.html/
+Original answer---
 
-was puzzling me. I understand the regex process, but I coundn't figure out the slashes in front. Then I found http://www.regexr.com/. What an amazing site. I wasted a lot of time there. And I learned about '\/' = '/' Go figure.
+When I remove .thumb from within the mousedown function it still works because .find('.thumb') had already returned it.
+
+I think we add it to ensure that if we include any other click events later there's no confusion. Be more specific just in case.
+----
+
+Namespacing! Ah, so later, when we've added more events, we might not want to unbind, etc, mousemove/up/down globally so we toss a .thumb on to restrict the functions.
+
+I bound mousemove and mouseup to ('.player-bar') instead of (document). There was no behavior change that I could see. But if we put another bar elsewhere we would either have to recreate the function or re-expand it to cover. Also, we lose the .unbind for the rest of the page. And that could get messy.
+
+
+showing the mouse X,Y coords:
+```
+$(document).mousemove(function(event) {
+  console.log(event.pageX, event.pageY); 
+})
+```
+Then I threw in an identifier to print out and found that it slowed things down a bit.
+```
+$(document).mousemove(function(event) {
+  console.log('X ' + event.pageX, 'Y ' + event.pageY); 
+})
+```
