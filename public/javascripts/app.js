@@ -145,6 +145,7 @@ require.register("scripts/album", function(exports, require, module) {
         if (songNumber !== currentlyPlayingSong) {
           songNumberCell.html('<a class="album-song-button"><i class="fa fa-play"></i></a>');
     }
+
   };
 
       // Change from a play button to song number when the song isn't playing and we hover off the row.
@@ -155,6 +156,7 @@ require.register("scripts/album", function(exports, require, module) {
           if (songNumber !== currentlyPlayingSong) {
             songNumberCell.html(songNumber);
     }
+
   };
 
     var clickHandler = function(event) {
@@ -177,6 +179,7 @@ require.register("scripts/album", function(exports, require, module) {
         $(this).html('<a class="album-song-button"><i class="fa fa=play"></1></a>');
         currentlyPlayingSong = null;
       }
+
     };
 
     $row.find('.song-number').click(clickHandler);
@@ -215,9 +218,6 @@ require.register("scripts/album", function(exports, require, module) {
  
  };
  
-
-
-		
 var updateSeekPercentage = function($seekBar, event) {
   var barWidth = $seekBar.width();
   var offsetX = event.pageX - $seekBar.offset().left;
@@ -253,7 +253,9 @@ var setupSeekBars = function() {
       $(document).unbind('mousemove.thumb');
       $(document).unbind('mouseup.thumb');
     });
+
   });
+
 }
 
 
@@ -265,17 +267,20 @@ if (document.URL.match(/\/album.html/)) {
     changeAlbumView(albumPicasso)
     setupSeekBars()
   });
+  
 }
 
 //$(document).mousemove(function(event) {
 //  console.log('X ' + event.pageX, 'Y ' + event.pageY); 
 //})
+
 });
 
 ;require.register("scripts/app", function(exports, require, module) {
 require("./landing");
 require("./collection");
 require("./album");
+require("./profile");
 
 });
 
@@ -391,6 +396,28 @@ $(document).ready(function() {
 	
 	
 });
+});
+
+;require.register("scripts/profile", function(exports, require, module) {
+var tabsContainer = ".user-profile-tabs-container"
+var selectTabHandler = function(event) {
+	$tab = $(this);
+	$(tabsContainer + " li").removeClass('active')
+	$tab.parent().addClass('active');
+	seletedTabName = $tab.attr('href');
+	console.log(selectedTabName);
+	$(".tab-pane").addClass('hidden');
+	$(selectedTabName).removeClass('hidden');
+	event.preventableDefault();
+};
+
+if (document.URL.match(/\/profile.html/)) {
+	$(document).ready(function() {
+		var $tabs = $(tabsContainer + " a");
+		$tabs.click(selectTabHandler);
+		$tabs[0].click();
+	});
+}
 });
 
 ;
