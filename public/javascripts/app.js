@@ -402,13 +402,13 @@ $(document).ready(function() {
 var tabsContainer = ".user-profile-tabs-container"
 var selectTabHandler = function(event) {
 	$tab = $(this);
-	$(tabsContainer + " li").removeClass('active')
+	$(tabsContainer + " li").removeClass('active');
 	$tab.parent().addClass('active');
-	seletedTabName = $tab.attr('href');
+	selectedTabName = $tab.attr('href');
 	console.log(selectedTabName);
 	$(".tab-pane").addClass('hidden');
 	$(selectedTabName).removeClass('hidden');
-	event.preventableDefault();
+	event.preventDefault();
 };
 
 if (document.URL.match(/\/profile.html/)) {
@@ -418,6 +418,7 @@ if (document.URL.match(/\/profile.html/)) {
 		$tabs[0].click();
 	});
 }
+
 });
 
 ;
