@@ -1,7 +1,6 @@
 <div class="collection-container container">
 	<div class="row"> <!-- album header -->
 		<div ng-repeat="album in albums" class="collection-album-container col-md-2">
-			
 			<div ng-mouseenter="showOverlay = false" ng-mouseleave="showOverlay = true" class="collection-album-image-container">
 				<img ng-src="{{ album.albumArtUrl }}">
 				<div class="collection-album-image-overlay" ng-hide="showOverlay">
@@ -16,8 +15,6 @@
 					</div>
 				</div>
 			</div>
-			
-
 			<div class="collection-album-info caption">
 				<p>
 					<a class="album-name" ui-sref="album"> {{ album.name}} </a>
@@ -30,4 +27,5 @@
 			</div>
 		</div>
 	</div>
+	<ng-include src="'/templates/player_bar.html'"></ng-include>
 </div>
