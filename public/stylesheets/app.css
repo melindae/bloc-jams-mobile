@@ -1,7 +1,7 @@
 .hero-content {
-  background-color: #2f1d57;
+  background-color: #4a0025;
   padding: 100px 0;
-  background: #2f1d57; }
+  background: #4a0025; }
 
 .hero-content h1 {
   font-size: 70px;
@@ -333,8 +333,8 @@ body {
   font-family: 'Open Sans';
   color: white;
   min-height: 100%;
-  background: -webkit-radial-gradient(#2b1339, #380c77);
-  background: radial-gradient(#2b1339, #380c77);
+  background: -webkit-radial-gradient(#4a0025, #6e3351);
+  background: radial-gradient(#4a0025, #6e3351);
   padding-bottom: 150px; }
 
 body.landing {
@@ -345,7 +345,7 @@ body.landing .navbar {
   margin-bottom: 0; }
 
 .player-header-nav {
-  background-color: rgba(123, 70, 163, 0.9); }
+  background-color: rgba(47, 22, 35, 0.9); }
   .player-header-nav .navbar-nav a {
     line-height: 45px;
     color: white;
@@ -354,6 +354,7 @@ body.landing .navbar {
     letter-spacing: 1.2; }
     .player-header-nav .navbar-nav a:hover {
       color: rgba(123, 70, 163, 0.9); }
+
 
 
 /*# sourceMappingURL=app.css.map*/
