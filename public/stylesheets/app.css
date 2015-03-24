@@ -21,10 +21,15 @@
   font-weight: bold;
   margin-bottom: 20px;
   text-align: center;
-  height: 85px; }
+  height: 85px;
+  border-style: solid;
+  border-color: white; }
 
 .selling-points .point p {
-  font-size: 14px; }
+  font-size: 14px;
+  text-align: center;
+  border-style: solid;
+  border-color: grey; }
 
 .album-header-container {
   margin-top: 55px;
@@ -326,6 +331,22 @@
 .no-right-gutter {
   padding-right: 0px; }
 
+@media screen and (max-width: 768px) {
+  .hero-content {
+    background-color: #ffcc00;
+    padding: 100px 0;
+    background: #ffcc00; }
+  .selling-points {
+    padding: 0; }
+    .selling-points .point {
+      padding: 3em 0.75em; }
+      .selling-points .point h5 {
+        height: 2.25em; }
+      .selling-points .point p {
+        text-align: center;
+        font-size: 1.25em;
+        padding: 10% 0.5%; } }
+
 html {
   height: 100%; }
 
@@ -354,7 +375,6 @@ body.landing .navbar {
     letter-spacing: 1.2; }
     .player-header-nav .navbar-nav a:hover {
       color: rgba(123, 70, 163, 0.9); }
-
 
 
 /*# sourceMappingURL=app.css.map*/

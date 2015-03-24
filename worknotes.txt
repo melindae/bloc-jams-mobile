@@ -1,24 +1,40 @@
-Original answer---
+[Mobile Bloc Jams with animations]
 
-When I remove .thumb from within the mousedown function it still works because .find('.thumb') had already returned it.
+*Purpose*
 
-I think we add it to ensure that if we include any other click events later there's no confusion. Be more specific just in case.
-----
+To explore CSS and JavaScript animations and to learn about responsive frontend development that makes our app mobile and tablet friendly.
 
-Namespacing! Ah, so later, when we've added more events, we might not want to unbind, etc, mousemove/up/down globally so we toss a .thumb on to restrict the functions.
+*Use Case*
 
-I bound mousemove and mouseup to ('.player-bar') instead of (document). There was no behavior change that I could see. But if we put another bar elsewhere we would either have to recreate the function or re-expand it to cover. Also, we lose the .unbind for the rest of the page. And that could get messy.
+Bloc Jams is great, but we want to make it work on mobile too. Our homepage could also use a facelift.
+
+*Requirements*
+
+*completely responsive - formats correctly on tablets and mobile phones with minimal loss to functionality.
+  *Navigation should change according to the size of the device.
+  *The layout and spacing of the elements on each page must change to accommodate different screen widths.
+*The Bloc Jams landing page should get an update.
+  *Animations should be applied when the page is loaded.
+  *Information should be revealed when hovering or tapping an album cover on the landing page of Bloc Jams.
+
+[CSS media queries]
+
+A media query consists of a *media type* and at least one *expression* that limits the style sheets' scope by using media features, such as width, height, and color. Media queries, added in CSS3, let the presentation of content be tailored to a specific range of output devices without having to change the content itself.
 
 
-showing the mouse X,Y coords:
-```
-$(document).mousemove(function(event) {
-  console.log(event.pageX, event.pageY); 
-})
-```
-Then I threw in an identifier to print out and found that it slowed things down a bit.
-```
-$(document).mousemove(function(event) {
-  console.log('X ' + event.pageX, 'Y ' + event.pageY); 
-})
-```
+--- hits breakpoint and shifts to a different stylesheet tablet/phone vert/horiz
+--- menu accessible
+--- controls usable
+--- album info available on touch or hover on album cover
+--- restyle/animate landing page - minimum
+--- animate album covers on landing page to flip to album info
+
+
+
+
+<style>
+@media screen and (max-width: 600px) {
+  .facet_sidebar {
+    /* media-specific rules */
+  }
+}
