@@ -36,6 +36,12 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
     templateUrl: '/templates/album.html',
    });
 
+  $stateProvider.state('profile', {
+    url: '/profile',
+    // controller:'Album.controller',
+    templateUrl: '/templates/profile.html',
+   });
+
 }]);
 
 blocJams.controller('Landing.controller', ['$scope', function($scope) {

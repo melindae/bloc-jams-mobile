@@ -21,15 +21,11 @@
   font-weight: bold;
   margin-bottom: 20px;
   text-align: center;
-  height: 85px;
-  border-style: solid;
-  border-color: white; }
+  height: 85px; }
 
 .selling-points .point p {
   font-size: 14px;
-  text-align: center;
-  border-style: solid;
-  border-color: grey; }
+  text-align: center; }
 
 .album-header-container {
   margin-top: 55px;
@@ -331,21 +327,45 @@
 .no-right-gutter {
   padding-right: 0px; }
 
-@media screen and (max-width: 768px) {
+/* ----------- Galaxy S5 ----------- */
+/* Portrait and Landscape */
+/* ----------- Galaxy Tab 10.1 ----------- */
+/* Portrait and Landscape */
+@media screen and (max-width: 800px) {
+  /* Collection View */
+  .player-header-nav.navbar .navbar-nav li {
+    text-align: center; }
   .hero-content {
     background-color: #ffcc00;
-    padding: 100px 0;
+    padding: 50px 0;
     background: #ffcc00; }
+    .hero-content h1, .hero-content h3 {
+      text-align: center; }
   .selling-points {
     padding: 0; }
     .selling-points .point {
-      padding: 3em 0.75em; }
+      padding: 0.1em 0.1em;
+      float: none;
+      margin-left: auto;
+      margin-right: auto; }
       .selling-points .point h5 {
-        height: 2.25em; }
+        height: auto;
+        margin-bottom: 0px; }
       .selling-points .point p {
         text-align: center;
         font-size: 1.25em;
-        padding: 10% 0.5%; } }
+        padding: 1% 0.5% 15% 0.5%; }
+  .landing-album-list {
+    /* Example class added to style the album covers for mobile */ }
+    .landing-album-list .album-cover {
+      position: relative;
+      left: calc(50% - 200px); }
+  .collection-album-container {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 280px;
+    /* Width of the album image. */ } }
 
 html {
   height: 100%; }

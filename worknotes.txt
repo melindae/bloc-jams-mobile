@@ -1,3 +1,8 @@
+- set initial breakpoint at 800 px. Once I shake things out I'll add 360 by 640. Time allowing I'll add more. 
+- set background color to change to have an obvious visual cue when the media query shift happens.
+- adjusted selling points container to stack vertically ,and adjusted padding to bring elements closer together.
+- implemented the top menu and included the 'profile' page in the SPA. It was not added previously.
+
 [Mobile Bloc Jams with animations]
 
 *Purpose*
@@ -28,6 +33,59 @@ A media query consists of a *media type* and at least one *expression* that limi
 --- album info available on touch or hover on album cover
 --- restyle/animate landing page - minimum
 --- animate album covers on landing page to flip to album info
+
+research meta tag and virtual viewports
+
+
+/* ----------- Galaxy S5 ----------- */
+
+/* Portrait and Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) {
+
+}
+
+/* Portrait */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: portrait) {
+
+}
+
+/* Landscape */
+@media screen 
+  and (device-width: 360px) 
+  and (device-height: 640px) 
+  and (-webkit-device-pixel-ratio: 3) 
+  and (orientation: landscape) {
+
+}
+/* ----------- Galaxy Tab 10.1 ----------- */
+
+/* Portrait and Landscape */
+@media 
+  (min-device-width: 800px) 
+  and (max-device-width: 1280px) {
+
+}
+
+/* Portrait */
+@media 
+  (max-device-width: 800px) 
+  and (orientation: portrait) { 
+
+}
+
+/* Landscape */
+@media 
+  (max-device-width: 1280px) 
+  and (orientation: landscape) { 
+
+}
 
 
 
