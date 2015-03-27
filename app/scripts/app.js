@@ -13,7 +13,7 @@ var albumPicasso = {
   ]
 };
 
-blocJams = angular.module('BlocJams', ['ui.router']);
+blocJams = angular.module('BlocJams', ['ui.router', 'ui.bootstrap']);
 
 blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
@@ -36,20 +36,14 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
     templateUrl: '/templates/album.html',
    });
 
-  $stateProvider.state('profile', {
-    url: '/profile',
-    // controller:'Album.controller',
-    templateUrl: '/templates/profile.html',
-   });
-
 }]);
 
 blocJams.controller('Landing.controller', ['$scope', function($scope) {
    $scope.subText = "Turn the music up!";
 
-   $scope.subTextClicked = function() {
-      $scope.subText += '!';
-   }
+   // $scope.subTextClicked = function() {
+   //    $scope.subText += '!';
+   // }
 
    $scope.albumURLs = [
      '/images/album-placeholders/album-1.jpg',
@@ -136,6 +130,10 @@ blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', function($s
   });
  
 }]);
+
+blocJams.controller('CollapseMenu', function($scope) {
+  $scope.isCollapsed = false;
+});
 
 blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
   var currentSoundFile = null;

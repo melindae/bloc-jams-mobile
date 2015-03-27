@@ -292,7 +292,7 @@ var albumPicasso = {
   ]
 };
 
-blocJams = angular.module('BlocJams', ['ui.router']);
+blocJams = angular.module('BlocJams', ['ui.router', 'ui.bootstrap']);
 
 blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
   $locationProvider.html5Mode(true);
@@ -315,20 +315,14 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
     templateUrl: '/templates/album.html',
    });
 
-  $stateProvider.state('profile', {
-    url: '/profile',
-    // controller:'Album.controller',
-    templateUrl: '/templates/profile.html',
-   });
-
 }]);
 
 blocJams.controller('Landing.controller', ['$scope', function($scope) {
    $scope.subText = "Turn the music up!";
 
-   $scope.subTextClicked = function() {
-      $scope.subText += '!';
-   }
+   // $scope.subTextClicked = function() {
+   //    $scope.subText += '!';
+   // }
 
    $scope.albumURLs = [
      '/images/album-placeholders/album-1.jpg',
@@ -415,6 +409,26 @@ blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', function($s
   });
  
 }]);
+
+blocJams.controller('CollapseMenu', function($scope) {
+  $scope.isCollapsed = false;
+  // if ($scope.isCollapsed === true) {
+   console.log($scope.isCollapsed);
+  //  button.i."fa fa-arrow-circle-o-down fa-3x" = "fa fa-arrow-circle-o-up fa-3x";
+  // }
+
+  // else {
+  //   console.log(.isCollapsed);
+  // //  button.i."fa fa-arrow-circle-o-up fa-3x" = "fa fa-arrow-circle-o-down fa-3x";
+  // }
+});
+
+
+
+
+
+
+
 
 blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
   var currentSoundFile = null;
@@ -715,26 +729,24 @@ $(document).ready(function() {
 		$(this).css({'font-size': '10px'});
 	});
 	
-	  	var onHoverAction = function(event) {
-     		//console.log('Hover action triggered.');
+	var onHoverAction = function(event) {
      		$(this).animate({'margin-top': '10px'});
-   };
+    };
  
    	var offHoverAction = function(event) {
-     		//console.log('Off-hover action triggered.');
      		$(this).animate({'margin-top': '0px'});
-   };
+    };
 	
-		var onHoverColor = function(event) {
+	var onHoverColor = function(event) {
 			$(this).css({color: 'red'});
 	};
 		
-		var offHoverColor = function(event) {
+	var offHoverColor = function(event) {
 			$(this).css({color: 'white'});
 	};
 	
 	
-   $('.selling-points .point').hover(onHoverAction, offHoverAction);
+    $('.selling-points .point').hover(onHoverAction, offHoverAction);
 	// $('.hero-content h1').hover(onHoverColor, offHoverColor);
 	
 	

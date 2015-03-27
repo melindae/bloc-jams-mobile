@@ -30,6 +30,15 @@ body.landing .navbar {
 
 .player-header-nav {
 	background-color: rgba(47, 22, 35, .9);
+  
+      button {
+      background: transparent;
+      border: none !important;
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+
     .navbar-nav {
       a {
         line-height: 45px;
@@ -44,6 +53,8 @@ body.landing .navbar {
       }
     }
 }
+
+
 
 
 

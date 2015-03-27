@@ -11,6 +11,7 @@
 	  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
+    <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/buzz/1.1.0/buzz.min.js"></script>
     <script src="/javascripts/vendor.js"></script>
     <script src="/javascripts/app.js"></script>
@@ -24,19 +25,23 @@
 		
 		<nav class="player-header-nav navbar">
       <div class="container">
-       	<div class='navbar-header'> <!-- Nav Bar -->
+        <div class='navbar-header'> <!-- Nav Bar -->
        		<a ui-sref='landing' class='logo navbar-left'>
          		<img src="/images/blocjams.png">
        		</a>
        	</div>
-          <ul class="nav navbar-nav navbar-right">
+        <div class="menu-bar-right"ng-controller="CollapseMenu" >
+          <button class="menu-open visible-xs" ng-click="isCollapsed = !isCollapsed">
+            <i class="fa fa-arrow-circle-o-down fa-3x"></i> 
+          </button>
+          <ul class="nav navbar-nav navbar-right" collapse="isCollapsed">
             <li><a ui-sref='album'>Playlist</a></li>
             <li><a ui-sref='collection'>Library</a></li>
             <li><a ui-sref='profile'>Profile</a></li>
           </ul>
+        </div>
       </div>
     </nav>
-
     <!-- Render templates here -->
     <div ui-view> </div>
 

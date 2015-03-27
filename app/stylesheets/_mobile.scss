@@ -14,9 +14,9 @@
 
 // }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
 
-  // /* Landing Page and Global Styles */
+  /* Landing Page and Global Styles */
   .player-header-nav.navbar {
     .navbar-nav {
       li {
@@ -28,12 +28,17 @@
   .hero-content {
     background-color: #FFCC00;
     padding: 50px 0;
-    background: #FFCC00;
     h1, h3 {
-        text-align: center;
+      text-align: center;
     }
   }
-   
+  
+  .landing-album-list {
+    .album-cover {
+      position: relative;
+      left: calc(50% - 200px);
+    }
+  }
 
   .selling-points {
     padding: 0;
@@ -44,7 +49,7 @@
       margin-right: auto;
       h5 {
         height: auto;
-        margin-bottom: 0px
+        margin-bottom: 10px
       }
       p {
         text-align: center;
@@ -53,14 +58,6 @@
       }
     }
   }
-    .landing-album-list {
-      /* Example class added to style the album covers for mobile */
-      .album-cover {
-        position: relative;
-        left: calc(50% - 200px);
-      }
-    }
-  
 
   /* Collection View */
 
@@ -70,4 +67,5 @@
     margin-right: auto;
     width: 280px; /* Width of the album image. */
   }
+
 }
