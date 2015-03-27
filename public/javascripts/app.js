@@ -412,23 +412,7 @@ blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', function($s
 
 blocJams.controller('CollapseMenu', function($scope) {
   $scope.isCollapsed = false;
-  // if ($scope.isCollapsed === true) {
-   console.log($scope.isCollapsed);
-  //  button.i."fa fa-arrow-circle-o-down fa-3x" = "fa fa-arrow-circle-o-up fa-3x";
-  // }
-
-  // else {
-  //   console.log(.isCollapsed);
-  // //  button.i."fa fa-arrow-circle-o-up fa-3x" = "fa fa-arrow-circle-o-down fa-3x";
-  // }
 });
-
-
-
-
-
-
-
 
 blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
   var currentSoundFile = null;
