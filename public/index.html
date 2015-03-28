@@ -7,6 +7,8 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 	  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 	  <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/animate.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/animations.css">
 
 	  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
@@ -35,9 +37,9 @@
             <i ng-class="{'fa fa-arrow-circle-down fa-3x': isCollapsed, 'fa fa-arrow-circle-up fa-3x': !isCollapsed}"></i> 
            </button>
           <ul class="nav navbar-nav navbar-right" collapse="isCollapsed">
-            <li><a ui-sref='album'>Playlist</a></li>
-            <li><a ui-sref='collection'>Library</a></li>
-            <li><a ui-sref='profile'>Profile</a></li>
+            <li><a ui-sref='album' class="animated slideInUp">Playlist</a></li>
+            <li><a ui-sref='collection' class="animated slideInUp">Library</a></li>
+            <li><a ui-sref='profile' class="animated slideInUp">Profile</a></li>
           </ul>
         </div>
       </div>
