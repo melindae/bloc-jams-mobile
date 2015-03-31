@@ -29,10 +29,26 @@
   </div>
 </div>
 
-<div class="landing-album-list container">
-  <div class="row">
-    <div class="col-md-4 album-cover" ng-repeat="albumURL in albumURLs">
+<div class="landing-album-list container flip-container">
+  <div class="row flipper">
+    <div class="col-md-4 album-cover front" ng-repeat="albumURL in albumURLs">
       <img ng-src="{{albumURL}}">
+    </div>
+    <div class="back">
+      <p> back content </p>
+    </div>
     </div>
   </div>
 </div>
+
+
+<!-- <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+  <div class="flipper">
+    <div class="front"> -->
+      <!-- front content -->
+   <!--  </div>
+    <div class="back"> -->
+      <!-- back content -->
+<!--     </div>
+  </div>
+</div> -->
