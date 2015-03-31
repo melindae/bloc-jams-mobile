@@ -195,9 +195,6 @@
     display: table;
     padding: 0;
     min-height: 100%; }
-  .player-bar .left-controls {
-    width: 25%;
-    text-align: left; }
   .player-bar .right-controls {
     width: 25%;
     text-align: right; }
@@ -397,7 +394,21 @@
     margin-left: auto;
     margin-right: auto;
     width: 280px;
-    /* Width of the album image. */ } }
+    /* Width of the album image. */ }
+  .player-bar .container {
+    display: static; }
+  .player-bar .left-controls {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .player-bar .currently-playing {
+    width: 70%;
+    position: absolute;
+    bottom: 30%;
+    left: 15%; }
+  .player-bar-control-group {
+    position: static; } }
 
 html {
   height: 100%; }

@@ -68,4 +68,30 @@
     width: 280px; /* Width of the album image. */
   }
 
+
+//   /* Player Bar */
+  .player-bar {
+
+    .container {
+      display: static
+    }
+
+    .left-controls {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .currently-playing {
+      width: 70%;
+      position: absolute;
+      bottom: 30%;
+      left: 15%;
+    }  
+  }
+
+  .player-bar-control-group {
+    position: static;
+  }
 }
