@@ -358,11 +358,7 @@
 .no-right-gutter {
   padding-right: 0px; }
 
-/* ----------- Galaxy S5 ----------- */
-/* Portrait and Landscape */
-/* ----------- Galaxy Tab 10.1 ----------- */
-/* Portrait and Landscape */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 800px) {
   /* Landing Page and Global Styles */
   /* Collection View */
   .player-header-nav.navbar .navbar-nav li {
@@ -374,7 +370,7 @@
       text-align: center; }
   .landing-album-list .album-cover {
     position: relative;
-    left: calc(50% - 200px); }
+    left: calc(50% - 170px); }
   .selling-points {
     padding: 0; }
     .selling-points .point {

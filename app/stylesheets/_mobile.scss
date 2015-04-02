@@ -1,20 +1,6 @@
-/* ----------- Galaxy S5 ----------- */
-/* Portrait and Landscape */
-// @media screen 
-//   and (device-width: 360px) 
-//   and (device-height: 640px) 
-//   and (-webkit-device-pixel-ratio: 3) {
-//}
 
-/* ----------- Galaxy Tab 10.1 ----------- */
-/* Portrait and Landscape */
-// @media 
-//   (min-device-width: 800px) 
-//   and (max-device-width: 1280px) {
 
-// }
-
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 800px) {
 
   /* Landing Page and Global Styles */
   .player-header-nav.navbar {
@@ -36,7 +22,7 @@
   .landing-album-list {
     .album-cover {
       position: relative;
-      left: calc(50% - 200px);
+      left: calc(50% - 170px);
     }
   }
 
@@ -47,6 +33,7 @@
       float: none;
       margin-left: auto;
       margin-right: auto;
+    
       h5 {
         height: auto;
         margin-bottom: 10px
