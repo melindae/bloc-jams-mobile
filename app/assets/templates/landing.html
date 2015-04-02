@@ -1,17 +1,17 @@
 
 
-<div class='hero-content'> <!-- Hero content -->
+<div class='hero-content'>
   <div class='container'>
     <h1>
       <p class="animated slideInLeft"> Bloc </p>
       <p class="animated slideInRight"> Jams </p>
     </h1>
-    <h3 ng-click="subTextClicked()"> {{ subText }} </h3>
+    <h3> Turn the music up! </h3>
   </div>
 </div>
 
-<div class='selling-points container'> <!-- Selling points -->
-  <div class='row'>
+<div class='selling-points container'> 
+  <div class='row-float'>
     <div class='point col-md-4 col-sm-8 col-xs-12'>
       <h5> Choose your music </h5>
       <p> The world is full of music; why should you have to listen to music that someone else chooses? </p>
@@ -22,16 +22,17 @@
       <p> No arbitrary limits, ad-free </p>
     </div>
   
-    <div class='point col-md-8 col-sm-8 col-xs-12'>
+    <div class='point col-md-4 col-sm-8 col-xs-12'>
       <h5>Mobile enabled</h5>
       <p>Listen to your music on the go. This streaming service is available on all mobile platforms.</p>
     </div>
+
   </div>
 </div>
 
 <div class="landing-album-list container">
-  <div class="row">
-    <div class="col-md-4 col-sm-8 col-xs-12 album-cover" ng-repeat="albumURL in albumURLs">
+  <div class="row-fluid">
+    <div class="col-md-4 album-cover" ng-repeat="albumURL in albumURLs">
       <!-- album flip start -->
       <div class="flip-container" ontouchstart="this.classList.toggle('hover');"> 
         <div class="flipper">
@@ -47,3 +48,35 @@
     </div>
   </div>
 </div>
+
+
+<!-- <div class="landing-album-list container">
+  <div class="row">
+    <div class="col-md-4 col-sm-8 col-xs-12" ng-repeat="albumURL in albumURLs">
+      <img ng-src="{{albumURL}}">
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+<!-- <div class="landing-album-list container">
+  <div class="row-fluid">
+    <div class="col-md-4 col-sm-8 col-xs-12 album-cover" ng-repeat="albumURL in albumURLs"> -->
+      <!-- album flip start -->
+      <!-- <div class="flip-container" ontouchstart="this.classList.toggle('hover');"> 
+        <div class="flipper">
+          <div class="front">
+            <img ng-src="{{albumURL}}"> 
+          </div>
+          <div class="back">
+            <img src="/images/albuminfosm.png">
+          </div>
+        </div>
+      </div> -->
+      <!-- album flip end -->
+<!--     </div>
+  </div>
+</div> -->

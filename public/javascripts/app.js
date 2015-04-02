@@ -325,11 +325,6 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
 }]);
 
 blocJams.controller('Landing.controller', ['$scope', function($scope) {
-   $scope.subText = "Turn the music up!";
-
-   // $scope.subTextClicked = function() {
-   //    $scope.subText += '!';
-   // }
 
    $scope.albumURLs = [
      '/images/album-placeholders/album-1.jpg',
@@ -704,41 +699,6 @@ if (document.URL.match(/\/collection.html/)) {
 
 ;require.register("scripts/landing", function(exports, require, module) {
 $(document).ready(function() { 
-   $('.hero-content h3').click(function(){
-      var subText = $(this).text();
-      $(this).text(subText + "!");
-   });
-	
-	$('.hero-content h1').click(function(){
-		$(this).fadeOut(600);
-	});
-
-
-	
-	$('.selling-points .point p').click(function(){
-		console.log('click size')
-		$(this).css({'font-size': '10px'});
-	});
-	
-	var onHoverAction = function(event) {
-     		$(this).animate({'margin-top': '10px'});
-    };
- 
-   	var offHoverAction = function(event) {
-     		$(this).animate({'margin-top': '0px'});
-    };
-	
-	var onHoverColor = function(event) {
-			$(this).css({color: 'red'});
-	};
-		
-	var offHoverColor = function(event) {
-			$(this).css({color: 'white'});
-	};
-	
-	
-    $('.selling-points .point').hover(onHoverAction, offHoverAction);
-	// $('.hero-content h1').hover(onHoverColor, offHoverColor);
 	
 	
 });

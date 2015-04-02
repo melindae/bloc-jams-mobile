@@ -46,11 +46,6 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
 }]);
 
 blocJams.controller('Landing.controller', ['$scope', function($scope) {
-   $scope.subText = "Turn the music up!";
-
-   // $scope.subTextClicked = function() {
-   //    $scope.subText += '!';
-   // }
 
    $scope.albumURLs = [
      '/images/album-placeholders/album-1.jpg',

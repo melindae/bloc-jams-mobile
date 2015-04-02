@@ -12,6 +12,9 @@
   display: inline-block;
   padding-right: 10px; }
 
+.hero-content h3 {
+  padding-left: 10px; }
+
 .selling-points {
   padding: 100px 0; }
 
@@ -43,8 +46,8 @@
   .landing-album-list .album-cover .flip-container:hover .flipper, .landing-album-list .album-cover .flip-container.hover .flipper {
     transform: rotateY(180deg); }
   .landing-album-list .album-cover .flip-container, .landing-album-list .album-cover .front, .landing-album-list .album-cover .back {
-    width: 400px;
-    height: 400px; }
+    width: 340px;
+    height: 340px; }
   .landing-album-list .album-cover .flipper {
     transition: 0.6s;
     transform-style: preserve-3d;
@@ -368,9 +371,10 @@
     padding: 50px 0; }
     .hero-content h1, .hero-content h3 {
       text-align: center; }
-  .landing-album-list .album-cover {
+  .landing-album-list {
     position: relative;
-    left: calc(50% - 170px); }
+    left: calc(50% - 170px);
+    overflow-y: hidden; }
   .selling-points {
     padding: 0; }
     .selling-points .point {

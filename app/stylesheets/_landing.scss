@@ -14,7 +14,9 @@
   display: inline-block;
   padding-right: 10px;
 }
-
+.hero-content h3 {
+  padding-left: 10px;
+}
 
 .selling-points {
   padding: 100px 0;
@@ -56,8 +58,8 @@
       }
 
     .flip-container, .front, .back {
-      width: 400px;
-      height: 400px;
+      width: 340px;
+      height: 340px;
     }
 
     /* flip speed goes here */
