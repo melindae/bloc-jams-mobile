@@ -3,6 +3,12 @@
 @media screen and (max-width: 800px) {
 
   /* Landing Page and Global Styles */
+
+
+  body {
+    background: #4A0025;
+  }
+
   .player-header-nav.navbar {
     .navbar-nav {
       li {
@@ -12,7 +18,7 @@
   }
 
   .hero-content {
-    background-color: #FFCC00;
+/*    background-color: #FFCC00;*/
     padding: 50px 0;
     h1, h3 {
       text-align: center;
@@ -21,8 +27,10 @@
   
   .landing-album-list {
     position: relative;
-    left: calc(50% - 170px);
+    left: calc(45% - 170px); /* TODO: this creates white gap on right */
     overflow-y: hidden;
+/*    margin: auto;*/
+
   }
 
   .selling-points {
@@ -31,6 +39,7 @@
     .point {
       padding: .1em .1em;
       float: none;
+      width: 60%;
       margin-left: auto;
       margin-right: auto;
     
@@ -56,7 +65,7 @@
   }
 
 
-//   /* Player Bar */
+  /* Player Bar */
   .player-bar {
 
     .container {

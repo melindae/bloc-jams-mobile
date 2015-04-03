@@ -34,18 +34,14 @@
   margin-bottom: 20px;
   text-align: center;
   height: 85px;
-  // border-style: solid;
-  // border-color: white; 
 }
 
 .selling-points .point p {
   font-size: 14px;
   text-align: center;
-//   border-style: solid;
-//   border-color: grey;
 }
 
-// album flip
+/* album flip */
 .landing-album-list {
   .album-cover {
     /* entire container, keeps perspective */
@@ -60,6 +56,7 @@
     .flip-container, .front, .back {
       width: 340px;
       height: 340px;
+      margin: auto;
     }
 
     /* flip speed goes here */
@@ -80,7 +77,6 @@
     /* front pane, placed above back */
     .front {
       z-index: 2;
-      /* for firefox 31 */
       transform: rotateY(0deg);
     }
 
