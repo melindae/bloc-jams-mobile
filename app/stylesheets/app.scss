@@ -1,10 +1,10 @@
-  @import "landing";
-  @import "album";
-  @import "collection";
-  @import "player_bar";
-  @import "buttons";
-  @import "profile";
-  @import "mobile";
+@import "landing";
+@import "album";
+@import "collection";
+@import "player_bar";
+@import "buttons";
+@import "profile";
+@import "mobile";
 
 html {
   height: 100%;
@@ -31,27 +31,27 @@ body.landing .navbar {
 .player-header-nav {
 	background-color: rgba(47, 22, 35, .9);
   
-      button {
-      background: transparent;
-      border: none !important;
-      position: absolute;
-      right: 20px;
-      top: 20px;
-    }
+    button {
+    background: transparent;
+    border: none !important;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
 
-    .navbar-nav {
-      a {
-        line-height: 45px;
-        color: white;
-        text-transform: uppercase;
-        font-weight: 700;
-        letter-spacing: 1.2;
+  .navbar-nav {
+    a {
+      line-height: 45px;
+      color: white;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1.2;
 
-        &:hover {
-          color: rgba(123, 70, 163, .9);
-        }
+      &:hover {
+        color: rgba(123, 70, 163, .9);
       }
     }
+  }
 }
 
 

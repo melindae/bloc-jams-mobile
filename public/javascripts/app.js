@@ -91,132 +91,126 @@
   globals.require.brunch = true;
 })();
 require.register("scripts/album", function(exports, require, module) {
- $('.navbar-left').click(function(e){console.log(e) })
- // Example Album
-  var albumPicasso = {
-    name: 'The Colors',
-    artist: 'Pablo Picasso',
-    label: 'Cubism',
-    year: '1881',
-    albumArtUrl: '/images/album-placeholder.png',
-    songs: [
-       { name: 'Blue', length: '4:26' },
-       { name: 'Green', length: '3:14' },
-       { name: 'Red', length: '5:01' },
-       { name: 'Pink', length: '3:21'},
-       { name: 'Magenta', length: '2:15'}
-    ]
-  };
- 
- // Another Example Album
-  var albumMarconi = {
-    name: 'The Telephone',
-    artist: 'Guglielmo Marconi',
-    label: 'EM',
-    year: '1909',
-    albumArtUrl: '/images/album-placeholder.png',
-    songs: [
-       { name: 'Hello, Operator?', length: '1:01' },
-       { name: 'Ring, ring, ring', length: '5:01' },
-       { name: 'Fits in your pocket', length: '3:21'},
-       { name: 'Can you hear me now?', length: '3:14' },
-       { name: 'Wrong phone number', length: '2:15'}
-    ]
-  }; 
-  var currentlyPlayingSong = null;
+$('.navbar-left').click(function(e){console.log(e) })
+// Example Album
+var albumPicasso = {
+  name: 'The Colors',
+  artist: 'Pablo Picasso',
+  label: 'Cubism',
+  year: '1881',
+  albumArtUrl: '/images/album-placeholder.png',
+  songs: [
+     { name: 'Blue', length: '4:26' },
+     { name: 'Green', length: '3:14' },
+     { name: 'Red', length: '5:01' },
+     { name: 'Pink', length: '3:21'},
+     { name: 'Magenta', length: '2:15'}
+  ]
+};
 
-  var createSongRow = function(songNumber, songName, songLength) {
-    var template =
-       '<tr>'
-     + '  <td class="song-number col-md-1" data-song-number="' + songNumber + '">' + songNumber + '</td>'
-     + '  <td class="col-md-9">' + songName + '</td>'
-     + '  <td class="col-md-2">' + songLength + '</td>'
-     + '</tr>'
-     ;
-      
-      // Instead of returning the row immediately, we'll attach hover
-      // functionality to it first.
-    var $row = $(template);
+// Another Example Album
+var albumMarconi = {
+  name: 'The Telephone',
+  artist: 'Guglielmo Marconi',
+  label: 'EM',
+  year: '1909',
+  albumArtUrl: '/images/album-placeholder.png',
+  songs: [
+     { name: 'Hello, Operator?', length: '1:01' },
+     { name: 'Ring, ring, ring', length: '5:01' },
+     { name: 'Fits in your pocket', length: '3:21'},
+     { name: 'Can you hear me now?', length: '3:14' },
+     { name: 'Wrong phone number', length: '2:15'}
+  ]
+}; 
+var currentlyPlayingSong = null;
 
-      // Change from a song number to play button when the song isn't playing and we hover over the row.
-    var onHover = function(event) {
-      var songNumberCell = $(this).find('.song-number');
-        var songNumber = songNumberCell.data('song-number');
+var createSongRow = function(songNumber, songName, songLength) {
+  var template =
+     '<tr>'
+   + '  <td class="song-number col-md-1" data-song-number="' + songNumber + '">' + songNumber + '</td>'
+   + '  <td class="col-md-9">' + songName + '</td>'
+   + '  <td class="col-md-2">' + songLength + '</td>'
+   + '</tr>'
+   ;
+    
+    // attach hover functionality to row before returning
+  var $row = $(template);
+
+    // change from song number to play button when the song isn't playing and row is hovered over
+  var onHover = function(event) {
+    var songNumberCell = $(this).find('.song-number');
+      var songNumber = songNumberCell.data('song-number');
+      if (songNumber !== currentlyPlayingSong) {
+        songNumberCell.html('<a class="album-song-button"><i class="fa fa-play"></i></a>');
+  }
+};
+    // change from play button to song number when the song isn't playing and row is hovered over
+  var offHover = function(event) {
+    var songNumberCell = $(this).find('.song-number');
+      var songNumber = songNumberCell.data('song-number');
+        songNumberCell.html(songNumber);
         if (songNumber !== currentlyPlayingSong) {
-          songNumberCell.html('<a class="album-song-button"><i class="fa fa-play"></i></a>');
-    }
-
-  };
-
-      // Change from a play button to song number when the song isn't playing and we hover off the row.
-    var offHover = function(event) {
-      var songNumberCell = $(this).find('.song-number');
-        var songNumber = songNumberCell.data('song-number');
           songNumberCell.html(songNumber);
-          if (songNumber !== currentlyPlayingSong) {
-            songNumberCell.html(songNumber);
+  }
+};
+
+  var clickHandler = function(event) {
+    var songNumber = $(this).data('song-number');
+
+    if (currentlyPlayingSong !== null) {
+      // Revert to song number for currently playing song because user started playing new song.
+      currentlyPlayingCell = $('song-number[data-song-number="' + currentlyPlayingSong + '"]');
+      currentlyPlayingCell.html(currentlyPlayingSong);
     }
 
-  };
-
-    var clickHandler = function(event) {
-      var songNumber = $(this).data('song-number');
-
-      if (currentlyPlayingSong !== null) {
-        // Revert to song number for currently playing song because user started playing new song.
-        currentlyPlayingCell = $('song-number[data-song-number="' + currentlyPlayingSong + '"]');
-        currentlyPlayingCell.html(currentlyPlayingSong);
-      }
-
-      if (currentlyPlayingSong !== songNumber ) {
-        // Switch from Play -> Pause to indicate new song is playing.
-        $(this).html('<a class="album-song-button"><i class="fa fa=pause"></i></a>');
-        currentlyPlayingSong = songNumber;
-      }
-
-      else if (currentlyPlayingSong === songNumber) {
-        // Switch from Pause -> Play button to pause currently playing song
-        $(this).html('<a class="album-song-button"><i class="fa fa=play"></1></a>');
-        currentlyPlayingSong = null;
-      }
-
-    };
-
-    $row.find('.song-number').click(clickHandler);
-    $row.hover(onHover, offHover);
-    return $row;
-  };
-
- 	var changeAlbumView = function(album) {
-   	
-		// Update the album title
-   	var $albumTitle = $('.album-title');
-   	$albumTitle.text(album.name);
- 
-   	// Update the album artist
-   	var $albumArtist = $('.album-artist');
-   	$albumArtist.text(album.artist);
- 
-   	// Update the meta information
-   	var $albumMeta = $('.album-meta-info');
-   	$albumMeta.text(album.year + " on " + album.label);
- 
-   	// Update the album image
-   	var $albumImage = $('.album-image img');
-   	$albumImage.attr('src', album.albumArtUrl);
- 
-   	// Update the Song List
-   	var $songList = $(".album-song-listing");
-   		$songList.empty();
-   	var songs = album.songs;
-   	
-		for (var i = 0; i < songs.length; i++) {
-   	  var songData = songs[i];
-   	  var $newRow = createSongRow(i + 1, songData.name, songData.length);
-   	  $songList.append($newRow);
+    if (currentlyPlayingSong !== songNumber ) {
+      // Switch from Play -> Pause to indicate new song is playing.
+      $(this).html('<a class="album-song-button"><i class="fa fa=pause"></i></a>');
+      currentlyPlayingSong = songNumber;
     }
- 
- };
+
+    else if (currentlyPlayingSong === songNumber) {
+      // Switch from Pause -> Play button to pause currently playing song
+      $(this).html('<a class="album-song-button"><i class="fa fa=play"></1></a>');
+      currentlyPlayingSong = null;
+    }
+  };
+
+  $row.find('.song-number').click(clickHandler);
+  $row.hover(onHover, offHover);
+  return $row;
+};
+
+	var changeAlbumView = function(album) {
+ 	
+	// Update the album title
+ 	var $albumTitle = $('.album-title');
+ 	$albumTitle.text(album.name);
+
+ 	// Update the album artist
+ 	var $albumArtist = $('.album-artist');
+ 	$albumArtist.text(album.artist);
+
+ 	// Update the meta information
+ 	var $albumMeta = $('.album-meta-info');
+ 	$albumMeta.text(album.year + " on " + album.label);
+
+ 	// Update the album image
+ 	var $albumImage = $('.album-image img');
+ 	$albumImage.attr('src', album.albumArtUrl);
+
+ 	// Update the Song List
+ 	var $songList = $(".album-song-listing");
+ 		$songList.empty();
+ 	var songs = album.songs;
+ 	
+	for (var i = 0; i < songs.length; i++) {
+ 	  var songData = songs[i];
+ 	  var $newRow = createSongRow(i + 1, songData.name, songData.length);
+ 	  $songList.append($newRow);
+  }
+};
  
 var updateSeekPercentage = function($seekBar, event) {
   var barWidth = $seekBar.width();
@@ -269,11 +263,6 @@ if (document.URL.match(/\/album.html/)) {
   });
   
 }
-
-//$(document).mousemove(function(event) {
-//  console.log('X ' + event.pageX, 'Y ' + event.pageY); 
-//})
-
 });
 
 ;require.register("scripts/app", function(exports, require, module) {
@@ -317,11 +306,8 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
 
   $stateProvider.state('profile', {
     url: '/profile',
-    // controller:'Album.controller',
     templateUrl: '/templates/profile.html',
   });
-
-
 }]);
 
 blocJams.controller('Landing.controller', ['$scope', function($scope) {
@@ -409,7 +395,6 @@ blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', function($s
       $scope.playTime = time;
     });
   });
- 
 }]);
 
 blocJams.controller('CollapseMenu', function($scope) {
@@ -432,10 +417,12 @@ blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
       this.playing = true;
       currentSoundFile.play();
     },
+    
     pause: function() {
       this.playing = false;
       currentSoundFile.pause();
     },
+    
     next: function() {
       var currentTrackIndex = trackIndex(this.currentAlbum, this.currentSong);
       currentTrackIndex++;
@@ -445,6 +432,7 @@ blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
       var song = this.currentAlbum.songs[currentTrackIndex];
       this.setSong(this.currentAlbum, song);
     },
+    
     previous: function() {
       var currentTrackIndex = trackIndex(this.currentAlbum, this.currentSong);
       currentTrackIndex--;
@@ -455,6 +443,7 @@ blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
       var song = this.currentAlbum.songs[currentTrackIndex];
       this.setSong(this.currentAlbum, song);
     },
+    
     seek: function(time) {
       // checks to make sure that a sound file is playing before seeking
       if(currentSoundFile) {
@@ -470,7 +459,6 @@ blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
       this.volume = volume;
     },
 
-    
     onTimeUpdate: function(callback) {
       return $rootScope.$on('sound:timeupdate', callback);
     },
@@ -533,8 +521,7 @@ blocJams.directive('slider', ['$document', function($document){
     }, 
     
     link: function(scope, element, attributes) {
-      // these values represent the progress into the song/volume bar, and its max value.
-      // For now, we're supplying arbitrary initial and max values.
+      // rogress into the song/volume bar, and max value.
       scope.value = 0;
       scope.max = 100;
       var $seekBar = $(element);
@@ -628,78 +615,73 @@ blocJams.filter('timecode', function() {
 });
 
 ;require.register("scripts/collection", function(exports, require, module) {
- var buildAlbumThumbnail = function() {
-    var template =
-        '<div class="collection-album-container col-md-2">'
-	    + '  <div class="collection-album-image-container">'
-   + '    		<img src="/images/album-placeholder.png"/>'
-   + '  		</div>'
-      + '  <div class="caption album-collection-info">'
-      + '    <p>'
-      + '      <a class="album-name" href="/album.html"> Album Name </a>'
-      + '      <br/>'
-      + '      <a href="/album.html"> Artist name </a>'
-      + '      <br/>'
-      + '      X songs'
-      + '    </p>'
-      + '  </div>'
-      + '</div>';
- 
-   return $(template);
- };
+var buildAlbumThumbnail = function() {
+  var template =
+      '<div class="collection-album-container col-md-2">'
+    + '  <div class="collection-album-image-container">'
+    + '    <img src="/images/album-placeholder.png"/>'
+    + '  </div>'
+    + '  <div class="caption album-collection-info">'
+    + '    <p>'
+    + '      <a class="album-name" href="/album.html"> Album Name </a>'
+    + '      <br/>'
+    + '      <a href="/album.html"> Artist name </a>'
+    + '      <br/>'
+    + '      X songs'
+    + '    </p>'
+    + '  </div>'
+    + '</div>';
 
- var buildAlbumOverlay = function(albumURL) {
-    var template =
-        '<div class="collection-album-image-overlay">'
-      + '  <div class="collection-overlay-content">'
-      + '    <a class="collection-overlay-button" href="' + albumURL + '">'
-      + '      <i class="fa fa-play"></i>'
-      + '    </a>'
-      + '    &nbsp;'
-      + '    <a class="collection-overlay-button">'
-      + '      <i class="fa fa-plus"></i>'
-      + '    </a>'
-      + '  </div>'
-      + '</div>'
-      ;
-    return $(template);
+ return $(template);
+};
+
+var buildAlbumOverlay = function(albumURL) {
+  var template =
+      '<div class="collection-album-image-overlay">'
+    + '  <div class="collection-overlay-content">'
+    + '    <a class="collection-overlay-button" href="' + albumURL + '">'
+    + '      <i class="fa fa-play"></i>'
+    + '    </a>'
+    + '    &nbsp;'
+    + '    <a class="collection-overlay-button">'
+    + '      <i class="fa fa-plus"></i>'
+    + '    </a>'
+    + '  </div>'
+    + '</div>'
+    ;
+  return $(template);
+};
+
+var updateCollectionView = function() {
+  var $collection = $(".collection-container .row");
+  $collection.empty();
+ 
+ 	for (var i = 0; i < 33; i++) {
+   	var $newThumbnail = buildAlbumThumbnail();
+   	$collection.append($newThumbnail);
+  }
+    
+ 	var onHover = function(event) {
+   	$(this).append(buildAlbumOverlay("/album.html"));
   };
 
- var updateCollectionView = function() {
-   var $collection = $(".collection-container .row");
-   $collection.empty();
- 
-	 
-   	for (var i = 0; i < 33; i++) {
-     		var $newThumbnail = buildAlbumThumbnail();
-     		$collection.append($newThumbnail);
-		}
-	    
-	 	var onHover = function(event) {
-     		$(this).append(buildAlbumOverlay("/album.html"));
-   };
-	 
-     
-  		var offHover = function(event) {
-    		$(this).find('.collection-album-image-overlay').remove();
+	var offHover = function(event) {
+		$(this).find('.collection-album-image-overlay').remove();
   };
 
-  		$collection.find('.collection-album-image-container').hover(onHover, offHover);
- };
- 
+	$collection.find('.collection-album-image-container').hover(onHover, offHover);
+};
 
 if (document.URL.match(/\/collection.html/)) {
    // Wait until the HTML is fully processed.
-   $(document).ready(function() {
-		
-			updateCollectionView();
-   });
- }
+  $(document).ready(function() {
+		updateCollectionView();
+  });
+}
 });
 
 ;require.register("scripts/landing", function(exports, require, module) {
 $(document).ready(function() { 
-	
 	
 });
 });

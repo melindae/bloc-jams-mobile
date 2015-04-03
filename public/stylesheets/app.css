@@ -35,35 +35,33 @@
   text-align: center; }
 
 /* album flip */
-.landing-album-list .album-cover {
-  /* entire container, keeps perspective */
-  /* flip the pane when hovered */
-  /* flip speed goes here */
-  /* hide back of pane during swap */
-  /* front pane, placed above back */
-  /* back, initially hidden pane */ }
-  .landing-album-list .album-cover .flip-container {
-    perspective: 1000; }
-  .landing-album-list .album-cover .flip-container:hover .flipper, .landing-album-list .album-cover .flip-container.hover .flipper {
-    transform: rotateY(180deg); }
-  .landing-album-list .album-cover .flip-container, .landing-album-list .album-cover .front, .landing-album-list .album-cover .back {
-    width: 340px;
-    height: 340px;
-    margin: auto; }
-  .landing-album-list .album-cover .flipper {
-    transition: 0.6s;
-    transform-style: preserve-3d;
-    position: relative; }
-  .landing-album-list .album-cover .front, .landing-album-list .album-cover .back {
-    backface-visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0; }
-  .landing-album-list .album-cover .front {
-    z-index: 2;
-    transform: rotateY(0deg); }
-  .landing-album-list .album-cover .back {
-    transform: rotateY(180deg); }
+.album-flip {
+  /* positions the rear card behind the front*/
+  position: relative;
+  float: left;
+  padding-bottom: 340px;
+  width: 340px; }
+
+.albumfront, .albumback {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 340px;
+  height: 340px;
+  backface-visibility: hidden;
+  transition: transform 0.3s; }
+
+.albumback {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg); }
+
+.album-flip.effect__hover:hover .albumfront {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg); }
+
+.album-flip.effect__hover:hover .albumback {
+  -webkit-transform: rotateY(0);
+  transform: rotateY(0); }
 
 .album-header-container {
   margin-top: 55px;
@@ -371,16 +369,11 @@
   .player-header-nav.navbar .navbar-nav li {
     text-align: center; }
   .hero-content {
-    /*    background-color: #FFCC00;*/
     padding: 50px 0; }
     .hero-content h1, .hero-content h3 {
       text-align: center; }
-  .landing-album-list {
-    position: relative;
-    left: calc(45% - 170px);
-    /* TODO: this creates white gap on right */
-    overflow-y: hidden;
-    /*    margin: auto;*/ }
+  .album-flip {
+    left: calc(50% - 170px); }
   .selling-points {
     padding: 0; }
     .selling-points .point {
@@ -400,8 +393,7 @@
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    width: 280px;
-    /* Width of the album image. */ }
+    width: 280px; }
   .player-bar .container {
     display: static; }
   .player-bar .left-controls {
@@ -451,6 +443,7 @@ body.landing .navbar {
     letter-spacing: 1.2; }
     .player-header-nav .navbar-nav a:hover {
       color: rgba(123, 70, 163, 0.9); }
+
 
 
 /*# sourceMappingURL=app.css.map*/

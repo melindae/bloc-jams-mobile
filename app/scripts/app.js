@@ -38,11 +38,8 @@ blocJams.config(['$stateProvider', '$locationProvider', function($stateProvider,
 
   $stateProvider.state('profile', {
     url: '/profile',
-    // controller:'Album.controller',
     templateUrl: '/templates/profile.html',
   });
-
-
 }]);
 
 blocJams.controller('Landing.controller', ['$scope', function($scope) {
@@ -130,7 +127,6 @@ blocJams.controller('PlayerBar.controller', ['$scope', 'SongPlayer', function($s
       $scope.playTime = time;
     });
   });
- 
 }]);
 
 blocJams.controller('CollapseMenu', function($scope) {
@@ -153,10 +149,12 @@ blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
       this.playing = true;
       currentSoundFile.play();
     },
+    
     pause: function() {
       this.playing = false;
       currentSoundFile.pause();
     },
+    
     next: function() {
       var currentTrackIndex = trackIndex(this.currentAlbum, this.currentSong);
       currentTrackIndex++;
@@ -166,6 +164,7 @@ blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
       var song = this.currentAlbum.songs[currentTrackIndex];
       this.setSong(this.currentAlbum, song);
     },
+    
     previous: function() {
       var currentTrackIndex = trackIndex(this.currentAlbum, this.currentSong);
       currentTrackIndex--;
@@ -176,6 +175,7 @@ blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
       var song = this.currentAlbum.songs[currentTrackIndex];
       this.setSong(this.currentAlbum, song);
     },
+    
     seek: function(time) {
       // checks to make sure that a sound file is playing before seeking
       if(currentSoundFile) {
@@ -191,7 +191,6 @@ blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
       this.volume = volume;
     },
 
-    
     onTimeUpdate: function(callback) {
       return $rootScope.$on('sound:timeupdate', callback);
     },
@@ -254,8 +253,7 @@ blocJams.directive('slider', ['$document', function($document){
     }, 
     
     link: function(scope, element, attributes) {
-      // these values represent the progress into the song/volume bar, and its max value.
-      // For now, we're supplying arbitrary initial and max values.
+      // rogress into the song/volume bar, and max value.
       scope.value = 0;
       scope.max = 100;
       var $seekBar = $(element);
