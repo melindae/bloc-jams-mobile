@@ -484,7 +484,6 @@ blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
   };
 }]);
 
-
 //  $document, used below is a service and seeds to be injected here to be used 
 blocJams.directive('slider', ['$document', function($document){
 
@@ -681,9 +680,9 @@ if (document.URL.match(/\/collection.html/)) {
 });
 
 ;require.register("scripts/landing", function(exports, require, module) {
-$(document).ready(function() { 
+// $(document).ready(function() { 
 	
-});
+// });
 });
 
 ;require.register("scripts/profile", function(exports, require, module) {

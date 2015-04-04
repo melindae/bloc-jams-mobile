@@ -216,7 +216,6 @@ blocJams.service('SongPlayer', ['$rootScope', function($rootScope) {
   };
 }]);
 
-
 //  $document, used below is a service and seeds to be injected here to be used 
 blocJams.directive('slider', ['$document', function($document){
 

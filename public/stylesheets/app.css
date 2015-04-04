@@ -48,7 +48,9 @@
   left: 0;
   width: 340px;
   height: 340px;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  transition: -webkit-transform 0.3s;
   transition: transform 0.3s; }
 
 .albumback {
@@ -67,11 +69,16 @@
   margin-top: 55px;
   margin-bottom: 40px; }
 
+/*  This styles the right side of our Album Header*/
 .album-header-information {
+  /*  Pushes the album information down and makes sure there's sufficient space at the bottom of the page*/
   margin-top: 45px;
   margin-bottom: 20px; }
 
 .album-header-information h3, .album-header-information h4, .album-header-information h5 {
+  /*   Modifying the line height allows us to increase the spacing above and
+   below the content. Another way of achieving the same effect would be to
+   set a margin-top and margin-bottom for each of these classes*/
   line-height: 150%; }
 
 .album-header-information h3 {
@@ -400,6 +407,7 @@
     position: absolute;
     bottom: 50%;
     left: 50%;
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
   .player-bar .currently-playing {
     width: 70%;
@@ -416,7 +424,6 @@ body {
   font-family: 'Open Sans';
   color: white;
   min-height: 100%;
-  background: -webkit-radial-gradient(#4a0025, #6e3351);
   background: radial-gradient(#4a0025, #6e3351);
   padding-bottom: 150px; }
 
@@ -443,7 +450,6 @@ body.landing .navbar {
     letter-spacing: 1.2; }
     .player-header-nav .navbar-nav a:hover {
       color: rgba(123, 70, 163, 0.9); }
-
 
 
 /*# sourceMappingURL=app.css.map*/

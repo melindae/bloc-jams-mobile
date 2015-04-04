@@ -58,7 +58,9 @@
   left: 0;
   width: 340px;
   height: 340px;
-  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
 }
 

@@ -14,7 +14,6 @@ body {
   font-family: 'Open Sans';
   color: white;
   min-height: 100%;
-  background: -webkit-radial-gradient(  #4A0025, #6E3351);
   background: radial-gradient(   #4A0025, #6E3351);
   padding-bottom: 150px;
 }
@@ -25,11 +24,11 @@ body.landing {
 }
 
 body.landing .navbar {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .player-header-nav {
-	background-color: rgba(47, 22, 35, .9);
+  background-color: rgba(47, 22, 35, .9);
   
     button {
     background: transparent;
